@@ -1,5 +1,5 @@
 table, td, tr, th{
-    border: 1px dotted red;
+    border: 1px dotted pink;
     border-collapse: collapse;
 }
 tbody tr td:last-child{
@@ -7,4 +7,36 @@ tbody tr td:last-child{
 }
 tbody tr td:nth-last-child(3){
     background-color: green;
+}
+#gyakorlat{
+    background-color: mediumseagreen
+}
+button:has(+p){
+    background-color: darkgoldenrod;
+}
+button:not(:has(+p)){
+    background-color: peachpuff;
+}
+#gyakorlat+a:hover{
+    color: blueviolet;
+    font-weight: bold;
+}
+#gyakorlat:has(+p:hover) button{
+    color: indigo;
+    font-weight: bold;
+}
+tr:not(:has(td[rowspan]))+tr:not(:has(td[rowspan])):hover td{
+    background-color: magenta;
+}
+tr:has(td[rowspan]):hover td{
+    background-color: pink;
+}
+tr:has(td[rowspan]):hover+tr td{
+    background-color: lightpink;
+}
+tr:has(td[rowspan]):has(+tr:hover) td{
+    background-color: brown;
+}
+tr:has(td[rowspan])+tr:hover td{
+    background-color: purple;
 }
