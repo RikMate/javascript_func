@@ -1,42 +1,3 @@
-//console.log("mau");
-/**
- * @type {string}
- */
-/*const string = "povmát";
-console.log(string);
-
-const b = ["a", "b", "c"];
-for (let i = 0; i < b.length; i++)
-{
-    console.log(b[i]);
-}
-
-for (const idk of b) {
-    console.log(idk)
-}
-
-for (const key in b) {
-    console.log(b[key])
-}
-
-for (const key in b) {
-    console.log(`${b[key]}`)
-}
-
-const y = {
-    /**
-     * @type {{name : string, age : number}}
-    */
-    /*name : "Povmát",
-    age : 24
-//}
-/*
-for (const key in y) {
-    console.log(y[key])
-}
-*/
-
-//HÁZI FELADAT:
 /**
  * @type {{szerzoNeve : string, korszak : string, szerelmek1 : string, szerelmek2 : string}[]}
  */
@@ -113,3 +74,16 @@ for(let i = 0; i < arr.length; i++)
     tr.appendChild(td3);
     tbody.appendChild(tr);
 };
+
+/**
+ * @param {string} celltype th/td
+ * @param {string} cellContent tartalom
+ * @param {HTMLTableRowElement} parentRow tr
+ */
+function createCell(celltype, cellContent, parentRow)
+{
+    cell = document.createElement(celltype);
+    cell.innerText = cellContent;
+    parentRow.appendChild(cell);
+}
+createCell();
