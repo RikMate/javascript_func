@@ -36,17 +36,10 @@ document.body.appendChild(thead);
 table.appendChild(thead);
 thead.appendChild(tr);
 
-const th1 = document.createElement("th");
-const th2 = document.createElement("th");
-const th3 = document.createElement("th");
-tr.appendChild(th1);
-tr.appendChild(th2);
-tr.appendChild(th3);
-
-th1.innerText = "Szerző neve";
-th2.innerText = "Korszak";
-th3.innerText = "Szerelmek";
-th3.colSpan = 2;
+createCell("th", "Szerzők", tr);
+createCell("th", "Korszak", tr);
+const idk1 = createCell("th", "Szerelmek", tr)
+idk1.colSpan = 2;
  
 const tbody = document.createElement("tbody");
 table.appendChild(tbody);
@@ -54,24 +47,15 @@ table.appendChild(tbody);
 for(let i = 0; i < arr.length; i++)
     {
     const tr = document.createElement("tr");
-    const td1 = document.createElement("td");
-    const td2 = document.createElement("td");
-    const td3 = document.createElement("td");
- 
-    td1.innerText = arr[i].szerzoNeve;
-    td2.innerText = arr[i].korszak;
-    td3.innerText = arr[i].szerelmek1;
+    createCell("td", arr[i].szerzoNeve, tr)
+    createCell("td", arr[i].korszak, tr)
+    const idk2 = createCell("td", arr[i].szerelmek1, tr)
  
     if (arr[i].szerelmek2 === undefined) {
-        td3.colSpan = 2;
+        idk2.colSpan = 2;
     } else {
-        const td4 = document.createElement("td");
-        td4.innerText = arr[i].szerelmek2;
-        tr.appendChild(td4);
+        createCell("td", arr[i].szerelmek2, tr)
     }
-    tr.appendChild(td1);
-    tr.appendChild(td2);
-    tr.appendChild(td3);
     tbody.appendChild(tr);
 };
 
@@ -79,11 +63,54 @@ for(let i = 0; i < arr.length; i++)
  * @param {string} celltype th/td
  * @param {string} cellContent tartalom
  * @param {HTMLTableRowElement} parentRow tr
+ * 
+ * @returns {HTMLTableCellElement}
  */
 function createCell(celltype, cellContent, parentRow)
 {
-    cell = document.createElement(celltype);
+    const cell = document.createElement(celltype);
     cell.innerText = cellContent;
     parentRow.appendChild(cell);
+    return cell;
 }
-createCell();
+
+
+/**
+ *
+ * @param {HTMLFormElement} form
+ * @param {string} id
+ * @param {string} labelText
+ */
+function createField(form, id, labelText) {
+    const label = document.createElement("label");
+    label.htmlFor = id;
+    label.innerText = labelText;
+    form.appendChild(label);
+    form.appendChild(document.createElement("br"));
+ 
+    const input = document.createElement("input");
+    input.type = "text";
+    input.id = id;
+    input.name = id;
+    form.appendChild(input);
+    form.appendChild(document.createElement("br"));
+    form.appendChild(document.createElement("br"));
+}
+ 
+const form = document.createElement("form");
+form.id = "form_js";
+ 
+const h2 = document.createElement("h2");
+h2.innerText = "Javascript form";
+form.appendChild(h2);
+ 
+createField(form, "kolto_nev", "Költő neve:");
+createField(form, "korszak", "Korszak:");
+createField(form, "szerelem1", "Szerelme:");
+createField(form, "szerelem2", "Szerelme:");
+ 
+const button = document.createElement("button");
+button.innerText = "Hozzáadás";
+form.appendChild(button);
+ 
+document.body.appendChild(form);
