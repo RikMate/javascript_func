@@ -90,7 +90,7 @@ for(const obj of arr)
 /**
  * @type {HTMLFormElement}
  **/
-const forms = document.getElementById("html_form");
+const forms = document.getElementById("htmlform");
 forms.addEventListener("submit", function (e)
 {
     e.preventDefault();
@@ -103,7 +103,7 @@ forms.addEventListener("submit", function (e)
     /**
     * @type {HTMLInputElement}
     **/
-    const ubiVagyDinnye = pepino.querySelector("nemzetiseg");
+    const ubiVagyDinnye = pepino.querySelector("#nemzetiseg");
     /**
     * @type {string}
     **/
@@ -112,7 +112,7 @@ forms.addEventListener("submit", function (e)
     /**
     * @type {HTMLInputElement}
     **/
-    const dinnyeVagyUbi = pepino.querySelector("szerzo1");
+    const dinnyeVagyUbi = pepino.querySelector("#szerzo1");
     /**
     * @type {string}
     **/
@@ -121,7 +121,7 @@ forms.addEventListener("submit", function (e)
     /**
     * @type {HTMLInputElement}
     **/
-    const zoldVagySarga = pepino.querySelector("mu1");
+    const zoldVagySarga = pepino.querySelector("#mu1");
     /**
     * @type {string}
     **/
@@ -130,7 +130,7 @@ forms.addEventListener("submit", function (e)
     /**
     * @type {HTMLInputElement}
     **/
-    const kerekVagyRud = pepino.querySelector("szerzo2");
+    const kerekVagyRud = pepino.querySelector("#szerzo2");
     /**
     * @type {string}
     **/
@@ -139,7 +139,7 @@ forms.addEventListener("submit", function (e)
     /**
     * @type {HTMLInputElement}
     **/
-    const idkatp = pepino.querySelector("mu2");
+    const idkatp = pepino.querySelector("#mu2");
     /**
     * @type {string}
     **/
@@ -148,5 +148,51 @@ forms.addEventListener("submit", function (e)
    /**
     * @type {{nemzetiseg : string, szerzo1 : string, mu1 : string, szerzo2 : string, mu2 : string}}
     */
-   const obj ={}
+   const obj = {};
+   obj.nemzetiseg = ubiVagyDinnyeValue;
+   obj.szerzo1 = dinnyeVagyUbiValue;
+   obj.mu1 = zoldVagySargaValue;
+   obj.szerzo2 = kerekVagyRudValue;
+   obj.mu2 = idkatpValue;
+
+   const vlm = document.getElementById("pepino");
+
+   const tr = document.createElement("tr");
+   vlm.appendChild(tr)
+   const td1 = document.createElement("td");
+    const td2 = document.createElement("td");
+    const td3 = document.createElement("td");
+ 
+    td1.innerText = obj.nemzetiseg;
+    /**
+     * @type {HTMLTableCellElement}
+     */
+    td1.addEventListener("click", function (e)
+    {
+        const target = e.target;
+        target.classList.add("marked");
+    }
+)
+    td2.innerText = obj.szerzo1;
+    td3.innerText = obj.mu1;
+ 
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+
+    if(obj.szerzo2)
+    {
+        td1.rowSpan = 2;
+
+        const tr = document.createElement("tr");
+        const td4 = document.createElement("td");
+        const td5 = document.createElement("td");
+
+        td4.innerText = obj.szerzo2;
+        td5.innerText = obj.mu2;
+
+         vlm.appendChild(tr);
+         tr.appendChild(td4);
+         tr.appendChild(td5);
+    }
 })
