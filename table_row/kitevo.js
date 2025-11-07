@@ -54,6 +54,15 @@ for(const obj of arr)
     const td3 = document.createElement("td");
  
     td1.innerText = obj.nemzetiseg;
+    /**
+     * @type {HTMLTableCellElement}
+     */
+    td1.addEventListener("click", function (e)
+    {
+        const target = e.target;
+        target.classList.add("marked");
+    }
+)
     td2.innerText = obj.szerzo1;
     td3.innerText = obj.mu1;
  
@@ -77,4 +86,67 @@ for(const obj of arr)
          tr.appendChild(td4);
          tr.appendChild(td5);
     }
-};
+}
+/**
+ * @type {HTMLFormElement}
+ **/
+const forms = document.getElementById("html_form");
+forms.addEventListener("submit", function (e)
+{
+    e.preventDefault();
+
+    /**
+     * @type {HTMLFormElement}
+     */
+    const pepino = e.target;
+
+    /**
+    * @type {HTMLInputElement}
+    **/
+    const ubiVagyDinnye = pepino.querySelector("nemzetiseg");
+    /**
+    * @type {string}
+    **/
+    const ubiVagyDinnyeValue = ubiVagyDinnye.value;
+
+    /**
+    * @type {HTMLInputElement}
+    **/
+    const dinnyeVagyUbi = pepino.querySelector("szerzo1");
+    /**
+    * @type {string}
+    **/
+   const dinnyeVagyUbiValue = dinnyeVagyUbi.value;
+
+    /**
+    * @type {HTMLInputElement}
+    **/
+    const zoldVagySarga = pepino.querySelector("mu1");
+    /**
+    * @type {string}
+    **/
+   const zoldVagySargaValue = zoldVagySarga.value;
+
+    /**
+    * @type {HTMLInputElement}
+    **/
+    const kerekVagyRud = pepino.querySelector("szerzo2");
+    /**
+    * @type {string}
+    **/
+   const kerekVagyRudValue = kerekVagyRud.value;
+
+    /**
+    * @type {HTMLInputElement}
+    **/
+    const idkatp = pepino.querySelector("mu2");
+    /**
+    * @type {string}
+    **/
+   const idkatpValue = idkatp.value;
+
+   /**
+    * @type {{nemzetiseg : string, szerzo1 : string, mu1 : string, szerzo2 : string, mu2 : string}}
+    */
+   const obj ={}
+})
