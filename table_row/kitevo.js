@@ -236,8 +236,8 @@ function createFormElement(form, id, labelText)
     form.appendChild(input);
     form.appendChild(document.createElement("br"));
 }
-const jsform = document.getElementById("htmlform");
-const button = document.createElement("button")
+const jsform = document.createElement("htmlform");
+const button = document.createElement("button")    
 
 jsform.id = "form_js";
 
@@ -246,6 +246,8 @@ createFormElement(jsform, "szerzo1", "Szerző neve:");
 createFormElement(jsform, "mu1", "Mű:");
 createFormElement(jsform, "szerzo2", "Másik szerző neve:");
 createFormElement(jsform, "mu2", "Mű:");
+
+document.body.appendChild(jsform);
 
 /**
  * @type {HTMLFormElement}
