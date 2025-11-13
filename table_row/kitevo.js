@@ -98,7 +98,7 @@ function renderTableBody(array)
             td4.innerText = obj.szerzo2;
             td5.innerText = obj.mu2;
 
-            tbody.appendChild(tr);
+            tbodyValtozo.appendChild(tr);
             tr.appendChild(td4);
             tr.appendChild(td5);
         }
@@ -236,7 +236,7 @@ function createFormElement(form, id, labelText)
     form.appendChild(input);
     form.appendChild(document.createElement("br"));
 }
-const jsform = document.createElement("htmlform");
+const jsform = document.createElement("form");
 const button = document.createElement("button")    
 
 jsform.id = "form_js";
