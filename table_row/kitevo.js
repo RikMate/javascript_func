@@ -17,7 +17,6 @@ const mainObj = {
         {id : "szerzo2", label : "Másik Szerző"},
         {id : "mu2", label : "Mű"}
     ]
-
 }
 
 
